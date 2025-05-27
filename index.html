@@ -139,20 +139,22 @@
 <div id="noncanvas">
 
 <div id="nontoolbar">
-	<div id="header"><h2>Heading</h2><hr></div>
+	<div id="header" style="padding:5px;"><h2 style="display:inline;">Organya Archive - </h2>A collection of org music by fans, for fans<hr></div>
 	<div style="height:fit-content;">
-	<p>abc</p>
+	<p>This is a static archive, based on the first two folders in the Organya Master List (compiled by @rde on Discord). Hopefully this format makes it easier to search for, preview, and download orgs.</p>
+	<hr>
 	<button onclick='search()'>Search</button>
 	<button onclick='clear_search()'>Clear</button>
 	<div id="results_table_div" style="height: 50px;overflow: auto;">
         <table id="results_table" class="fixed_headers">
         <thead>
         <tr>
-		<th><input type='text'><br>Filename</th>
-		<th><input type='text'><br>Author</th>
-		<th><input type='text'><br>Source</th>
-		<th><input type='text'><br>Source Song</th>
-		<th><input type='text'><br>Date</th>
+		<!-- ss0 means search string 0 -->
+		<th><input type='text' id='ss0'><br>Filename</th>
+		<th><input type='text' id='ss1'><br>Author</th>
+		<th><input type='text' id='ss2'><br>Source</th>
+		<th><input type='text' id='ss3'><br>Source Song</th>
+		<th><input type='text' id='ss4'><br>Date</th>
 		</tr>
         </thead>
         <tbody>
@@ -407,12 +409,20 @@
             }, true);
 			
 			
+			let search_results = [];
 			window.search = () => {
-				let search_results = [];
-				let search_string = "bro";
+				search_results = [];
 				for(let i=0; i<song_index.length; i++){
-					if(song_index[i]["author"].toLowerCase().indexOf(search_string.toLowerCase()) > -1){
-						search_results.push(song_index[i]);
+					if(song_index[i]["filename"].toLowerCase().indexOf(document.getElementById('ss0').value.toLowerCase()) > -1){
+						if(song_index[i]["author"].toLowerCase().indexOf(document.getElementById('ss1').value.toLowerCase()) > -1){
+							if(song_index[i]["source"].toLowerCase().indexOf(document.getElementById('ss2').value.toLowerCase()) > -1){
+								if(song_index[i]["source song"].toLowerCase().indexOf(document.getElementById('ss3').value.toLowerCase()) > -1){
+									if(song_index[i]["date created"].toLowerCase().indexOf(document.getElementById('ss4').value.toLowerCase()) > -1){
+										search_results.push(song_index[i]);
+									}
+								}
+							}
+						}
 					}
 				}
 				
