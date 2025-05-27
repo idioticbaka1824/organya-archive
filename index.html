@@ -81,12 +81,12 @@
             position: fixed;
             height: fit-content;
             display: inline-block;
-			<!-- padding-bottom: 5px; -->
+			padding-top: 10px;
             top: 0;
             left: 0;
             right: 0;
-			<!-- resize: vertical; -->
-			<!-- overflow: auto; -->
+			resize: vertical;
+			overflow: auto;
         }
 		
 		.fixed_headers {
@@ -100,7 +100,7 @@
 		  font: normal 12px Verdana, Arial, sans-serif;
 		}
 		.fixed_headers thead, textarea {
-		  background-color: #333;
+		  background-color: #1d2425;
 		  color: #FDFDFD;
 		}
 		.fixed_headers thead tr {
@@ -109,11 +109,14 @@
 		.fixed_headers tbody tr:nth-child(even) {
 		  background-color: #DDD;
 		}
+		.fixed_headers tbody {
+		  cursor: pointer;
+		}
 
 		.fixed_headers thead th {
 		  position: sticky;
 		  top: 0;  /* REQUIRED: https://stackoverflow.com/a/43707215 */
-		  background-color: #333; 
+		  background-color: #1d2425; 
 		  resize: horizontal;
 		  overflow: auto;
 		  min-width: fit-content;
@@ -142,7 +145,8 @@
 	<div id="header" style="padding:5px;"><h2 style="display:inline;">Organya Archive - </h2>A collection of org music by fans, for fans<hr></div>
 	<div style="height:fit-content;">
 	<p>This is a static archive, based on the first two folders in the <a href='https://docs.google.com/spreadsheets/d/151dLFqDK-_UhSLz_0fOfvAvfcbgendqfZiwVZ26ZLnw/'>Organya Master List</a> (compiled by @rde on Discord). Hopefully this format makes it easier to search for, preview, and download orgs.</p>
-	<p>Enter text in the input areas above the table headers, and click Search to find orgs you want. You can search under multiple columns at a time (this takes a logical intersection of the queries). Searching with nothing entered in any input area will return all 4000+ songs in the archive.</p>
+	<p>Enter text in the input areas above the table headers, and click Search to find orgs you want. Click on a row to select that org, then click the green play button to play. You can search under multiple columns at a time (this takes a logical intersection of the queries). Searching with nothing entered in any input area will return all 4000+ songs in the archive (this may take while).
+	<br>Note that you can vertically resize the search results table as well as this whole text header section.</p>
 	<p>If you have feedback regarding this web tool, <a href='https://raadshaikh.github.io/contact.html'>contact me.</a></p>
 	<hr>
 	<button onclick='search()'>Search</button>
@@ -411,6 +415,7 @@
 			
 			
 			let search_results = [];
+			let selected_row_index = 0;
 			window.search = () => {
 				search_results = [];
 				for(let i=0; i<song_index.length; i++){
@@ -449,6 +454,12 @@
 				}
 			}
 			window.select_row = (i) => {
+				document.getElementById('search_result_'+selected_row_index).style['background-color']='';
+				document.getElementById('search_result_'+selected_row_index).style['color']='';
+				selected_row_index = i;
+				document.getElementById('search_result_'+selected_row_index).style['background-color']='#4c82d7';
+				document.getElementById('search_result_'+selected_row_index).style['color']='#fdfdfd';
+				prev_song = new_song;
 				new_song = search_results[i]['path']+'/'+search_results[i]['filename'];
 				playOrg('dontPlay');
 			}
@@ -460,6 +471,13 @@
 				}
 			}
 			
+			for(let i=0; i<5; i++){
+				document.getElementById('ss'+i).addEventListener('keydown', (e) => {
+                    if(e.key=="Enter"){
+                        window.search();
+                    }                
+				}, true);
+			}
 			
         })();
 		
