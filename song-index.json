@@ -1,24 +1,46 @@
 [
-	{
-		"filename": "tormented-soul",
-		"path": "SONGS/",
-		"title": "Tormented Soul",
-		"author": "author1",
-		"source song": "Seal Chamber",
-		"date uploaded": "2025-05-26",
-		"date created": "2016-06-12",
-		"comments": "remix of seal chamber from cave story",
-		"tags": ["remix", "vg music", "cavestory", "ballos"]
-	},
-	{
-		"filename": "unowen-was-her",
-		"path": "SONGS/touhou/",
-		"title": "UN Owen Was Her",
-		"author": "author2",
-		"source song": "UN Owen Was Her",
-		"date uploaded": "2025-05-26",
-		"date created": "2009-11-04",
-		"comments": "cover of un owen was her from touhou",
-		"tags": ["cover", "vg music", "touhou", "flandre"]
-	}
+  {
+    "filename": "tormented-soul - Copy.org",
+    "path": "SONGS/author0",
+    "title": "",
+    "author": "author0",
+    "source song": "",
+    "date uploaded": "",
+    "date created": "2025-05-26T18:22:26.945617",
+    "comments": "",
+    "tags": []
+  },
+  {
+    "filename": "tormented-soul.org",
+    "path": "SONGS/author0",
+    "title": "",
+    "author": "author0",
+    "source song": "",
+    "date uploaded": "",
+    "date created": "2025-05-26T17:54:00.264378",
+    "comments": "",
+    "tags": []
+  },
+  {
+    "filename": "tormented-soul - Copy - Copy.org",
+    "path": "SONGS/author0/subfolder",
+    "title": "",
+    "author": "author0/subfolder",
+    "source song": "",
+    "date uploaded": "",
+    "date created": "2025-05-26T18:24:34.118425",
+    "comments": "",
+    "tags": []
+  },
+  {
+    "filename": "unowen-was-her.org",
+    "path": "SONGS/author1",
+    "title": "",
+    "author": "author1",
+    "source song": "",
+    "date uploaded": "",
+    "date created": "2025-05-26T17:54:00.276367",
+    "comments": "",
+    "tags": []
+  }
 ]
