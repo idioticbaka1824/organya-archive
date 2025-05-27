@@ -321,12 +321,14 @@
         //splitting waves and drums into separate wavetables
         
         console.log("Initializing Organya...");
-        const res = await fetch("WAVE100.bin");
+        // const res = await fetch("WAVE100.bin");
+        const res = await fetch(new URL("https://raadshaikh.github.io/music/organya-js-03/WAVE100.bin"));
         const buf = await res.arrayBuffer();
         const view = new DataView(buf);
         waveTable = new Int8Array(buf);
         
-        const res_d = await fetch("DrumWaves.bin"); //'_d' for 'drum'. Beyond that, code is unchanged
+        // const res_d = await fetch("DrumWaves.bin"); //'_d' for 'drum'. Beyond that, code is unchanged
+        const res_d = await fetch(new URL("https://raadshaikh.github.io/music/organya-js-03/DrumWaves.bin"));
         const buf_d = await res_d.arrayBuffer();
         const view_d = new DataView(buf_d);
         drumWaveTable = new Int8Array(buf_d);

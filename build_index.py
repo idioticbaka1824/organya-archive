@@ -47,5 +47,6 @@ for roots, dirs, files in os.walk(directory):
                 "tags": []
             })
 
-with open("song-index.json", "w") as f:
-    f.write(json.dumps(data, indent=2))
+to_write = 'let song_index = ' + json.dumps(data, indent=2)
+with open("song_index.js", "w") as f:
+    f.write(to_write)
