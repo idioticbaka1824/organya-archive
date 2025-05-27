@@ -1,0 +1,41 @@
+angels.org -- meltdown 2
+bells.org -- labyrinth fight
+chestnut.org -- pulse
+child e1.org -- final cave
+child e2.org -- running hell
+child e3.org -- seal chamber
+child l1.org -- jenka 1
+child l2.org -- jenka 2
+deck die.org -- death
+deck it.org -- got item
+deck lc.org -- life capsule
+deck title.org -- cave story
+deck vc.org -- victory
+drum.org -- balcony
+faith.org -- on to grasstown
+godrest 1.org -- gravity
+godrest 2.org -- eyes of flame
+godrest 3.org -- charge
+godrest 4.org -- final battle
+gotell 1.org -- mischievious robot
+gotell 2.org -- scorching back
+hear.org -- gestation
+hnight 1.org -- mimiga town
+hnight 2.org -- quiet
+hnight cem.org -- cemetary
+joy 1.org -- toroko's theme
+joy 2.org -- king's theme
+joy bad.org -- hero's end
+joy good.org -- the way back home
+king calm.org -- geothermal
+king run.org -- run
+king x.org -- oppression
+noel.org -- access
+olittle.org -- moonsong
+pap 1.org -- balrog's theme
+pap 2.org -- tyrant
+pap 3.org -- zombie
+pap 4.org -- break down
+silent.org -- living waterway
+snow.org -- safety
+torch.org -- plant
