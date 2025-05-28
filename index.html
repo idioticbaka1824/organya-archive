@@ -161,6 +161,7 @@
 		<th ondblclick="sortTable(2)"><input type='text' id='ss2'><br>Source</th>
 		<th ondblclick="sortTable(3)"><input type='text' id='ss3'><br>Source Song</th>
 		<th ondblclick="sortTable(4)"><input type='text' id='ss4'><br>Date</th>
+		<th style='background-color:#DDD; resize:none;'></th>
 		</tr>
         </thead>
         <tbody>
@@ -450,11 +451,14 @@
 					const cell2 = newRow.insertCell(2);
 					const cell3 = newRow.insertCell(3);
 					const cell4 = newRow.insertCell(4);
+					const cell5 = newRow.insertCell(5);
 					cell0.innerHTML = search_results[i]['filename'];
 					cell1.innerHTML = search_results[i]['author'];
 					cell2.innerHTML = search_results[i]['source'];
 					cell3.innerHTML = search_results[i]['source song'];
 					cell4.innerHTML = search_results[i]['date created'];
+					cell5.style['background-color'] = '#DDD';
+					cell5.innerHTML = "<a href='"+search_results[i]['path']+'/'+search_results[i]['filename']+"'>Download</a>";
 				}
 			}
 			window.select_row = (i) => {
