@@ -22,7 +22,10 @@ for roots, dirs, files in os.walk(directory):
     for file in files:
         if file[-4:]=='.org':
             root_slash = roots.replace('\\', '/')
-            author = root_slash[6:]
+            try:
+                author = root_slash[6:6+root_slash[6:].index('/')]
+            except ValueError:
+                author = root_slash[6:]
             isCover = 2
             if len([element for element in originals_csv if element['ORGMaker']==author and element['Filename']==file]) != 0: #check if this author and filename exists in the originals(confirmed) list
                 isCover = 0
