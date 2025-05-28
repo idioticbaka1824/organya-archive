@@ -30,7 +30,7 @@
             left: 0;
             right: 0;
 			bottom: 0px;
-			padding-bottom: 5px;
+			padding-top: 4px;
         }
 
         #toolbar select {
@@ -77,7 +77,7 @@
             right: 0;
         }
 		#nontoolbar {
-            background-color: var(--main-bg-color);
+            background-color: #DDD;
             position: fixed;
             height: fit-content;
             display: inline-block;
@@ -107,7 +107,7 @@
 		  position: relative;
 		}
 		.fixed_headers tbody tr:nth-child(even) {
-		  background-color: #DDD;
+		  background-color: var(--main-bg-color);
 		}
 		.fixed_headers tbody {
 		  cursor: pointer;
@@ -145,7 +145,7 @@
 	<div id="header" style="padding:5px;"><h2 style="display:inline;">Organya Archive - </h2>A collection of org music by fans, for fans<hr></div>
 	<div style="height:fit-content;">
 	<p>This is a static archive, based on the first two folders in the <a href='https://docs.google.com/spreadsheets/d/151dLFqDK-_UhSLz_0fOfvAvfcbgendqfZiwVZ26ZLnw/'>Organya Master List</a> (compiled by @rde on Discord). Hopefully this format makes it easier to search for, preview, and download orgs.</p>
-	<p>Enter text in the input areas above the table headers, and click Search to find orgs you want. Click on a row to select that org, then click the green play button to play. You can search under multiple columns at a time (this takes a logical intersection of the queries). Searching with nothing entered in any input area will return all 4000+ songs in the archive (this may take while).
+	<p>Enter text in the input areas above the table headers, and click Search to find orgs you want. Click on a row to select that org, then click the green play button to play. You can search under multiple columns at a time (this takes a logical intersection of the queries). Searching with nothing entered in any input area will return all 4000+ songs in the archive (this may take a while).
 	<br>Note that you can vertically resize the search results table as well as this whole text header section.</p>
 	<p>If you have feedback regarding this web tool, <a href='https://raadshaikh.github.io/contact.html'>contact me.</a></p>
 	<hr>
