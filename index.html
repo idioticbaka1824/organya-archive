@@ -423,6 +423,7 @@
 			let selected_row_index = 0;
 			window.search = () => {
 				search_results = [];
+				 selected_row_index = 0;
 				for(let i=0; i<song_index.length; i++){
 					if(song_index[i]["filename"].toLowerCase().indexOf(document.getElementById('ss0').value.toLowerCase()) > -1){
 						if(song_index[i]["author"].toLowerCase().indexOf(document.getElementById('ss1').value.toLowerCase()) > -1){
