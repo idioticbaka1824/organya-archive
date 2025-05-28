@@ -145,7 +145,7 @@
 	<div id="header" style="padding:5px;"><h2 style="display:inline;">Organya Archive - </h2>A collection of org music by fans, for fans<hr></div>
 	<div style="height:fit-content;">
 	<p>This is a static archive, based on the first two folders in the <a href='https://docs.google.com/spreadsheets/d/151dLFqDK-_UhSLz_0fOfvAvfcbgendqfZiwVZ26ZLnw/'>Organya Master List</a> (compiled by @rde on Discord). Hopefully this format makes it easier to search for, preview, and download orgs.</p>
-	<p>Enter text in the input areas above the table headers, and click Search to find orgs you want. Click on a row to select that org, then click the green play button to play. You can search under multiple columns at a time (this takes a logical intersection of the queries). Searching with nothing entered in any input area will return all 4000+ songs in the archive (this may take a while).
+	<p>Enter text in the input areas above the table headers, and click Search to find orgs you want. Click on a row to select that org, then click the green play button to play. Double-click a table header to sort results based on that header alphabetically. You can search under multiple columns at a time (this takes a logical intersection of the queries). Searching with nothing entered in any input area will return all 4000+ songs in the archive (this may take a while).
 	<br>Note that you can vertically resize the search results table as well as this whole text header section.</p>
 	<p>If you have feedback regarding this web tool, <a href='https://raadshaikh.github.io/contact.html'>contact me.</a></p>
 	<hr>
@@ -156,11 +156,11 @@
         <thead>
         <tr>
 		<!-- ss0 means search string 0 -->
-		<th><input type='text' id='ss0'><br>Filename</th>
-		<th><input type='text' id='ss1'><br>Author</th>
-		<th><input type='text' id='ss2'><br>Source</th>
-		<th><input type='text' id='ss3'><br>Source Song</th>
-		<th><input type='text' id='ss4'><br>Date</th>
+		<th ondblclick="sortTable(0)"><input type='text' id='ss0'><br>Filename</th>
+		<th ondblclick="sortTable(1)"><input type='text' id='ss1'><br>Author</th>
+		<th ondblclick="sortTable(2)"><input type='text' id='ss2'><br>Source</th>
+		<th ondblclick="sortTable(3)"><input type='text' id='ss3'><br>Source Song</th>
+		<th ondblclick="sortTable(4)"><input type='text' id='ss4'><br>Date</th>
 		</tr>
         </thead>
         <tbody>
@@ -323,6 +323,7 @@
             }
 
             window.playOrg = async (argument='doPlay') => {
+			console.log(prev_song, new_song);
                 console.log("fetching song...");
 				
                     res = await fetch(new_song);
@@ -477,6 +478,61 @@
                         window.search();
                     }                
 				}, true);
+			}
+			
+			window.sortTable = (n) => {
+			  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+			  table = document.getElementById("results_table");
+			  switching = true;
+			  // Set the sorting direction to ascending:
+			  dir = "asc";
+			  /* Make a loop that will continue until
+			  no switching has been done: */
+			  while (switching) {
+				// Start by saying: no switching is done:
+				switching = false;
+				rows = table.rows;
+				/* Loop through all table rows (except the
+				first, which contains table headers): */
+				for (i = 1; i < (rows.length - 1); i++) {
+				  // Start by saying there should be no switching:
+				  shouldSwitch = false;
+				  /* Get the two elements you want to compare,
+				  one from current row and one from the next: */
+				  x = rows[i].getElementsByTagName("TD")[n];
+				  y = rows[i + 1].getElementsByTagName("TD")[n];
+				  /* Check if the two rows should switch place,
+				  based on the direction, asc or desc: */
+				  if (dir == "asc") {
+					if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+					  // If so, mark as a switch and break the loop:
+					  shouldSwitch = true;
+					  break;
+					}
+				  } else if (dir == "desc") {
+					if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+					  // If so, mark as a switch and break the loop:
+					  shouldSwitch = true;
+					  break;
+					}
+				  }
+				}
+				if (shouldSwitch) {
+				  /* If a switch has been marked, make the switch
+				  and mark that a switch has been done: */
+				  rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+				  switching = true;
+				  // Each time a switch is done, increase this count by 1:
+				  switchcount ++;
+				} else {
+				  /* If no switching has been done AND the direction is "asc",
+				  set the direction to "desc" and run the while loop again. */
+				  if (switchcount == 0 && dir == "asc") {
+					dir = "desc";
+					switching = true;
+				  }
+				}
+			  }
 			}
 			
         })();
