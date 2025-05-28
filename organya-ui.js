@@ -11,7 +11,8 @@
             this.ctx = canvas.getContext("2d");
             this.organya = null;
             this.requested = false;
-            this.scrollY = 8 * 144 - this.canvas.height;
+			this.maxOctaves = 11;
+            this.scrollY = (this.maxOctaves-3) * 144 - this.canvas.height;
 
             this.canvas.addEventListener("wheel", this.onScroll.bind(this));
             if ("ontouchstart" in window) {
@@ -106,7 +107,7 @@
             const { width, height } = this.canvas;
             this.ctx.clearRect(0, 0, width, height);
 
-            const maxY = 8 * 144 - this.canvas.height;
+            const maxY = this.maxOctaves * 144 - this.canvas.height;
             if (this.scrollY < 0) this.scrollY = 0;
             if (this.scrollY > maxY) this.scrollY = maxY;
 			
@@ -126,16 +127,10 @@
                     if (subBeat === 0) sprX = 80;
                     if (subBeat === 0 && beat === 0) {
                         
-                        if (this.organya!=null && measId==(this.organya.song.start / this.organya.MeasxStep | 0)){
-                            this.drawHeadFoot(x, maxY, 0);
-                        }
-                        
                         sprX = 64;
+                        this.drawNumber(x, height-12, measId, 3);
                         this.drawNumber(x, 0, measId++, 3);
                         
-                        if (this.organya!=null && measId==(this.organya.song.end / this.organya.MeasxStep | 0)){
-                            this.drawHeadFoot(x+16*this.organya.MeasxStep, maxY, 1);
-                        }
                     }
 
                     if (++subBeat === meas[1]) {
@@ -187,7 +182,7 @@
 						}
 
                         const noteX = note.pos * 16 - scrollX;
-                        const noteY = (95 - note.key) * 12 - this.scrollY;
+                        const noteY = (95+12*(this.maxOctaves-8) - note.key) * 12 - this.scrollY;
 						
 						if(noteY<3) continue noteLoop; //hide tails when they're at the top row, so the header numbers are clearly visible.
 
@@ -202,13 +197,43 @@
                 }
             }
 
-            let octave = 7;
+            let octave = this.maxOctaves-1;
             y = -this.scrollY;
             while (y < height) {
                 this.ctx.drawImage2(this.pianoRoll, 0, 0, 64, 144, 0, y, 64, 144);
-                this.drawNumber(54, y + 132, octave, 0, true);
+                this.drawNumber(54-8*Math.floor(Math.log(octave+!octave)/Math.log(10)), y + 132, octave, 0, true);
                 if (octave-- === 0) break;
                 y += 144;
+				
+                let beat = 0;
+                let subBeat = 0;
+                let x = 64;
+                let measId = startMeas;
+				while (x < width) {
+                    
+                    let sprX = 96;
+                    if (subBeat === 0) sprX = 80;
+                    if (subBeat === 0 && beat === 0) {
+                        
+                        if (this.organya!=null && measId==(this.organya.song.start / this.organya.MeasxStep | 0)){
+                            this.drawHeadFoot(x, height-24, 0);
+                        }
+						
+                        this.drawNumber(x, height-12, measId, 3);
+                        this.drawNumber(x, document.getElementById('noncanvas').offsetHeight, measId++, 3);
+                        
+                        if (this.organya!=null && measId==(this.organya.song.end / this.organya.MeasxStep | 0)){
+                            this.drawHeadFoot(x+16*this.organya.MeasxStep, height-24, 1);
+                        }
+                    }
+
+                    if (++subBeat === meas[1]) {
+                        subBeat = 0;
+                        if (++beat === meas[0]) beat = 0;
+                    }
+                    x += 16;
+                }
+				
             }
         }
     }

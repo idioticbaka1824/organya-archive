@@ -283,30 +283,34 @@
     <script src="song_index.js"></script>
     <!--I have no clue what this cache bust thing is, but apparently it's needed to reflect updates properly-->
     <script>
-		function toolbar_shift(){
-			document.getElementById('noncanvas').style['height']=document.getElementById('nontoolbar').offsetHeight+document.getElementById('toolbar').offsetHeight+'px';
-		}
-		toolbar_shift();
-		window.onmousemove = toolbar_shift;
-		document.getElementById('noncanvas').style['z-index']=999;
-    
-        let prev_song=null;
-        let new_song=null;
         
         (() => {
-            
+		
+		
+			let prev_song=null;
+			let new_song=null;
+            new_song=new URL('https://raadshaikh.github.io/music/organya-js-03/songs/NewData29_2.org');
 
             const canvasContainer = document.getElementById("canvas-container");
             const orgCanvas = document.getElementById("org-canvas");
             orgCanvas.width = canvasContainer.clientWidth;
             orgCanvas.height = canvasContainer.clientHeight;
             const ui = new OrganyaUI(orgCanvas);
+			
 
             window.addEventListener("resize", () => {
                 orgCanvas.width = canvasContainer.clientWidth;
                 orgCanvas.height = canvasContainer.clientHeight;
                 ui.draw();
             })
+			
+			window.toolbar_shift = () => {
+				document.getElementById('noncanvas').style['height']=document.getElementById('nontoolbar').offsetHeight+document.getElementById('toolbar').offsetHeight+'px';
+				ui.draw();
+			}
+			toolbar_shift();
+			window.onmousemove = toolbar_shift;
+			document.getElementById('noncanvas').style['z-index']=999;
 
             let currentOrg = null;
             window.stopOrg = () => {
