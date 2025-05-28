@@ -171,6 +171,9 @@
 
                 if (++this.samplesThisTick == this.samplesPerTick) {
                     this.playPos += 1;
+					if(this.playPos%this.song.meas[0]==0){
+						document.getElementById('nowPlaying').style['color'] = ((this.playPos/this.song.meas[0])%2==0 ? '' : 'var(--main-bg-color)' );
+					}
                     this.updateTimeDisplay();
                     this.samplesThisTick = 0;
 

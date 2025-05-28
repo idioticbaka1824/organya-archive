@@ -22,15 +22,15 @@
         #toolbar {
             background-color: var(--main-bg-color);
             position: absolute;
-            flex-wrap: nowrap;
             height: 40px;
-			min-width: 100vw;
+			min-width: 0px;
 			min-height: fit-content;
             display: flex;
             left: 0;
             right: 0;
 			bottom: 0px;
 			padding-top: 4px;
+			overflow-x: auto;
         }
 
         #toolbar select {
@@ -133,6 +133,19 @@
 			width: 100%;
 		}
 		
+		#displayName {
+            background-color: var(--main-bg-color);
+            position: absolute;
+			min-width: fit-content;
+			min-height: fit-content;
+            left: 0;
+			bottom: 0px;
+			padding-bottom: 2px;
+			padding-top: 4px;
+			padding-inline: 10px;
+			overflow-x: auto;
+        }
+		
     }
     </style>
 </head>
@@ -171,7 +184,14 @@
         </div> 
 	<hr>
 	</div>
+	
+	
+<div id="displayName">
 </div>
+	
+	
+</div>
+
 
     <div id="toolbar">
         
@@ -290,6 +310,8 @@
 		
 			let prev_song=null;
 			let new_song=null;
+			<!-- new_song = new URL('http://raadshaikh.github.io/music/organya-js-03/songs/NewData2.org'); -->
+			<!-- document.getElementById('displayName').innerHTML = "Now playing<span id='nowPlaying'>:</span> " + new_song+' ~ ('+'baka'+')'; -->
 
             const canvasContainer = document.getElementById("canvas-container");
             const orgCanvas = document.getElementById("org-canvas");
@@ -471,6 +493,7 @@
 				prev_song = new_song;
 				new_song = search_results[i]['path']+'/'+search_results[i]['filename'];
 				playOrg('dontPlay');
+				document.getElementById('displayName').innerHTML = "<span id='nowPlaying'>Now playing: </span>" + search_results[i]['filename']+' ~ ('+search_results[i]['author']+')';
 			}
 			
 			window.clear_search = () => {
