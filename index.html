@@ -350,12 +350,16 @@
             window.playOrg = async (argument='doPlay') => {
                 console.log("fetching song...");
                 res = await fetch(new_song);
+				console.log('fetched song');
                 
                 if (prev_song != new_song || prev_song == null){
+					console.log('prev_song != new_song || prev_song == null happened');
 					prev_song = new_song;
                     stopOrg();
+					console.log('stopOrg done');
                     const data = await res.arrayBuffer();
                     await initOrganya();
+					console.log('initorganya done');
 
                     currentOrg = new Organya(data);
                     ui.setOrganya(currentOrg);
