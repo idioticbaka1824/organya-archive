@@ -19305,6 +19305,15 @@ let song_index = [
     "date created": "2014-07-07T11:22:38.490728"
   },
   {
+    "filename": "Balconies In-between.org",
+    "path": "SONGS/IdioticBaka1824",
+    "author": "IdioticBaka1824",
+    "source": "Cave Story / Omori",
+    "source song": "Balcony / Spaces In-between",
+    "isCover": 1,
+    "date created": "2022-01-25T05:45:23.196123"
+  },
+  {
     "filename": "borealis.org",
     "path": "SONGS/IdioticBaka1824",
     "author": "IdioticBaka1824",
@@ -19368,6 +19377,15 @@ let song_index = [
     "date created": "2014-09-29T04:04:40.648781"
   },
   {
+    "filename": "EienNoMiko.org",
+    "path": "SONGS/IdioticBaka1824",
+    "author": "IdioticBaka1824",
+    "source": "Touhou",
+    "source song": "Eternal Shrine Maiden",
+    "isCover": 1,
+    "date created": "2023-03-09T20:08:44.600082"
+  },
+  {
     "filename": "farethere_flashback.org",
     "path": "SONGS/IdioticBaka1824",
     "author": "IdioticBaka1824",
@@ -19375,6 +19393,15 @@ let song_index = [
     "source song": "Flashback",
     "isCover": 1,
     "date created": "2017-04-18T05:27:52.396427"
+  },
+  {
+    "filename": "fcOni.org",
+    "path": "SONGS/IdioticBaka1824",
+    "author": "IdioticBaka1824",
+    "source": "Yume Nikki",
+    "source song": "FC Demon Room",
+    "isCover": 1,
+    "date created": "2023-06-17T16:09:02.654944"
   },
   {
     "filename": "harukaze.org",
@@ -19566,6 +19593,15 @@ let song_index = [
     "date created": "2014-10-19T09:36:09.412202"
   },
   {
+    "filename": "ttmfr.org",
+    "path": "SONGS/IdioticBaka1824",
+    "author": "IdioticBaka1824",
+    "source": "To the Moon",
+    "source song": "For River",
+    "isCover": 1,
+    "date created": "2021-10-29T12:32:33.255622"
+  },
+  {
     "filename": "U&I+.org",
     "path": "SONGS/IdioticBaka1824",
     "author": "IdioticBaka1824",
@@ -19609,6 +19645,33 @@ let song_index = [
     "source song": "Will of the Heart",
     "isCover": 1,
     "date created": "2014-04-30T01:05:00.327485"
+  },
+  {
+    "filename": "akantares_flying.org",
+    "path": "SONGS/IdioticBaka1824/Originals",
+    "author": "IdioticBaka1824",
+    "source": "Akantares Re-opening",
+    "source song": "Missiles Flying",
+    "isCover": 1,
+    "date created": "2024-10-25T04:34:51.431745"
+  },
+  {
+    "filename": "akantares_ready.org",
+    "path": "SONGS/IdioticBaka1824/Originals",
+    "author": "IdioticBaka1824",
+    "source": "Akantares Re-opening",
+    "source song": "Waiting for input...",
+    "isCover": 1,
+    "date created": "2024-10-25T04:52:56.392182"
+  },
+  {
+    "filename": "akantares_startscreen.org",
+    "path": "SONGS/IdioticBaka1824/Originals",
+    "author": "IdioticBaka1824",
+    "source": "Akantares Re-opening",
+    "source song": "Title Theme / Game Over",
+    "isCover": 1,
+    "date created": "2024-10-25T04:42:03.539448"
   },
   {
     "filename": "NewData10_3.2.org",
