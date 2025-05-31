@@ -79,7 +79,7 @@
 		#nontoolbar {
             background-color: #DDD;
             position: fixed;
-            height: fit-content;
+            height: 20vh;
             display: inline-block;
 			padding-top: 10px;
             top: 0;
@@ -124,7 +124,7 @@
 		  padding: 3px;
 		}
 		#results_table_div{
-			min-height: 5rem;
+			min-height: 10rem;
 			max-height: 50vh;
 			resize: vertical;
 			overflow: scroll;
@@ -156,7 +156,7 @@
 
 	<div id="nontoolbar">
 		<div id="header" style="padding:5px;"><h2 style="display:inline;">Organya Archive - </h2>A collection of org music by fans, for fans<hr></div>
-		<div style="height:fit-content;">
+		<div>
 		<!-- safusaka's folder already seems to be covered in the first two folders. alula's keroords is 404. starlightchaos access denied. -->
 			<p>This is a static archive, based on <s>the first two</s> all the folders in the <a href='https://docs.google.com/spreadsheets/d/151dLFqDK-_UhSLz_0fOfvAvfcbgendqfZiwVZ26ZLnw/'>Organya Master List</a> (compiled by @rde on Discord). Hopefully this format makes it easier to search for, preview, and download orgs.</p>
 			<p>Enter text in the input areas above the table headers, and click Search to find orgs you want. Click on a row to select that org, then click the green play button to play. Double-click a table header to sort results based on that header alphabetically. You can search under multiple columns at a time (this takes a logical intersection of the queries). Searching with nothing entered in any input area will return all 6000+ songs in the archive (this may take a while). If you can't find something searching by Source, try searching by Filename. Note that I have not bothered deduplicating or anything so it may be a bit messy.
@@ -350,16 +350,12 @@
             window.playOrg = async (argument='doPlay') => {
                 console.log("fetching song...");
                 res = await fetch(new_song);
-				console.log('fetched song');
                 
                 if (prev_song != new_song || prev_song == null){
-					console.log('prev_song != new_song || prev_song == null happened');
 					prev_song = new_song;
                     stopOrg();
-					console.log('stopOrg done');
                     const data = await res.arrayBuffer();
                     await initOrganya();
-					console.log('initorganya done');
 
                     currentOrg = new Organya(data);
                     ui.setOrganya(currentOrg);
