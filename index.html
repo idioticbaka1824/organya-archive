@@ -490,7 +490,6 @@
 				prev_song = new_song;
 				new_song = search_results[i]['path']+'/'+search_results[i]['filename'];
 				playOrg('dontPlay');
-				document.getElementById('displayName').innerHTML = "<span id='nowPlaying'>Now playing: </span>" + search_results[i]['filename']+' ~ ('+search_results[i]['author']+')';
 			}
 			
 			window.clear_search = () => {
