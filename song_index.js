@@ -21087,6 +21087,15 @@ let song_index = [
     "date created": "1979-12-31T23:00:00"
   },
   {
+    "filename": "maimai.org",
+    "path": "SONGS/makkoi",
+    "author": "makkoi",
+    "source": "",
+    "source song": "",
+    "isCover": 2,
+    "date created": "2013-12-14T00:50:14"
+  },
+  {
     "filename": "bubble1.org",
     "path": "SONGS/marcoaslak",
     "author": "marcoaslak",
@@ -22374,6 +22383,15 @@ let song_index = [
     "date created": "2014-05-27T01:42:24"
   },
   {
+    "filename": "happy00.org",
+    "path": "SONGS/nurv",
+    "author": "nurv",
+    "source": "",
+    "source song": "",
+    "isCover": 2,
+    "date created": "2013-12-14T00:50:12"
+  },
+  {
     "filename": "SHOP.org",
     "path": "SONGS/Obonga",
     "author": "Obonga",
@@ -22876,42 +22894,6 @@ let song_index = [
     "source song": "",
     "isCover": 2,
     "date created": "2014-05-27T13:03:06"
-  },
-  {
-    "filename": "happy00.org",
-    "path": "SONGS/Pixel",
-    "author": "Pixel",
-    "source": "",
-    "source song": "",
-    "isCover": 0,
-    "date created": "2013-12-14T00:50:12"
-  },
-  {
-    "filename": "maimai.org",
-    "path": "SONGS/Pixel",
-    "author": "Pixel",
-    "source": "",
-    "source song": "",
-    "isCover": 0,
-    "date created": "2013-12-14T00:50:14"
-  },
-  {
-    "filename": "snowfalling.org",
-    "path": "SONGS/Pixel",
-    "author": "Pixel",
-    "source": "",
-    "source song": "",
-    "isCover": 0,
-    "date created": "2013-12-14T00:50:14"
-  },
-  {
-    "filename": "town0.org",
-    "path": "SONGS/Pixel",
-    "author": "Pixel",
-    "source": "",
-    "source song": "",
-    "isCover": 0,
-    "date created": "2013-12-14T00:50:16"
   },
   {
     "filename": "wanpaku.org",
@@ -26575,6 +26557,24 @@ let song_index = [
     "source song": "",
     "isCover": 0,
     "date created": "2014-09-27T23:16:00"
+  },
+  {
+    "filename": "snowfalling.org",
+    "path": "SONGS/Rxo",
+    "author": "Rxo",
+    "source": "",
+    "source song": "",
+    "isCover": 2,
+    "date created": "2013-12-14T00:50:14"
+  },
+  {
+    "filename": "town0.org",
+    "path": "SONGS/Rxo",
+    "author": "Rxo",
+    "source": "",
+    "source song": "",
+    "isCover": 2,
+    "date created": "2013-12-14T00:50:16"
   },
   {
     "filename": "enrika_16.org",
