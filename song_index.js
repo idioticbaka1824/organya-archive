@@ -19260,6 +19260,15 @@ let song_index = [
     "date created": "2014-09-10T17:09:51.059346"
   },
   {
+    "filename": "ACCESS - Copy.org",
+    "path": "SONGS/IdioticBaka1824",
+    "author": "IdioticBaka1824",
+    "source": "Cave Story / Monogatari",
+    "source song": "Access / Jinchiku",
+    "isCover": 1,
+    "date created": "2025-03-30T21:13:16.413338"
+  },
+  {
     "filename": "alones.org",
     "path": "SONGS/IdioticBaka1824",
     "author": "IdioticBaka1824",
@@ -19312,6 +19321,15 @@ let song_index = [
     "source song": "Balcony / Spaces In-between",
     "isCover": 1,
     "date created": "2022-01-25T05:45:23.196123"
+  },
+  {
+    "filename": "BALLOS - Copy.org",
+    "path": "SONGS/IdioticBaka1824",
+    "author": "IdioticBaka1824",
+    "source": "Cave Story / Touhou",
+    "source song": "Seal Chamber / Disunified Field Theory of Magic",
+    "isCover": 1,
+    "date created": "2025-03-29T23:19:47.617429"
   },
   {
     "filename": "borealis.org",
@@ -19384,6 +19402,15 @@ let song_index = [
     "source song": "Eternal Shrine Maiden",
     "isCover": 1,
     "date created": "2023-03-09T20:08:44.600082"
+  },
+  {
+    "filename": "FANFALE2 - Copy.org",
+    "path": "SONGS/IdioticBaka1824",
+    "author": "IdioticBaka1824",
+    "source": "Cave Story / K-On!!",
+    "source song": "Get Heart Tank! / Tenshi ni Fureta Yo!",
+    "isCover": 1,
+    "date created": "2023-06-02T20:11:06.219877"
   },
   {
     "filename": "farethere_flashback.org",
