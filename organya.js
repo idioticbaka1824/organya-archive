@@ -298,9 +298,11 @@
 				this.sampleRate = this.ctx.sampleRate;
 				this.samplesPerTick = (this.sampleRate / 1000) * this.song.wait | 0;
 				this.samplesThisTick = 0;
-            }
-            if(argument=='doPlay'){ //the point of this bit is to change the display as soon as a new org is selected
+
 				this.node = this.ctx.createScriptProcessor(8192, 0, 2);
+            }
+			if(argument!='doPlay'){this.pause();}
+            if(argument=='doPlay'){ //the point of this bit is to change the display as soon as a new org is selected
                 this.node.onaudioprocess = (e) => this.synth(e.outputBuffer.getChannelData(0), e.outputBuffer.getChannelData(1));
                 this.node.connect(this.ctx.destination);
 			}
