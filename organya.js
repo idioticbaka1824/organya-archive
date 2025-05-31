@@ -171,9 +171,6 @@
 
                 if (++this.samplesThisTick == this.samplesPerTick) {
                     this.playPos += 1;
-					if(this.playPos%this.song.meas[0]==0){
-						document.getElementById('nowPlaying').style['color'] = ((this.playPos/this.song.meas[0])%2==0 ? '' : 'var(--main-bg-color)' );
-					}
                     this.updateTimeDisplay();
                     this.samplesThisTick = 0;
 
@@ -283,17 +280,20 @@
         }
         }
 
-        stop() {
-            this.node.disconnect();
-            this.ctx.close();
-        }
+        // stop() {
+            // this.node.disconnect();
+            // this.ctx.close();
+        // }
         
         pause() {
             this.node.disconnect();
-            this.ctx.close();
+			if(this.ctx && this.ctx.state !== 'closed'){
+				this.ctx.close();
+			}
         }
 
         play(argument) {
+			if(!this.ctx || this.ctx.state == 'closed'){
             this.ctx = new (window.AudioContext || window.webkitAudioContext)();
             this.sampleRate = this.ctx.sampleRate;
             this.samplesPerTick = (this.sampleRate / 1000) * this.song.wait | 0;
@@ -305,6 +305,7 @@
                 this.node.onaudioprocess = (e) => this.synth(e.outputBuffer.getChannelData(0), e.outputBuffer.getChannelData(1));
                 this.node.connect(this.ctx.destination);
             }
+			}
         }
         
         whichMuted() {

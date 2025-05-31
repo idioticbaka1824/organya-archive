@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Organya Player</title>
+    <title>Organya Archive</title>
 	<link rel="icon" type="image/x-icon" href="favicon.ico?v1.1">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
     <style>
@@ -154,44 +154,37 @@
 
 <div id="noncanvas">
 
-<div id="nontoolbar">
-	<div id="header" style="padding:5px;"><h2 style="display:inline;">Organya Archive - </h2>A collection of org music by fans, for fans<hr></div>
-	<div style="height:fit-content;">
-	<p>This is a static archive, based on the first two folders in the <a href='https://docs.google.com/spreadsheets/d/151dLFqDK-_UhSLz_0fOfvAvfcbgendqfZiwVZ26ZLnw/'>Organya Master List</a> (compiled by @rde on Discord). Hopefully this format makes it easier to search for, preview, and download orgs.</p>
-	<p>Enter text in the input areas above the table headers, and click Search to find orgs you want. Click on a row to select that org, then click the green play button to play. Double-click a table header to sort results based on that header alphabetically. You can search under multiple columns at a time (this takes a logical intersection of the queries). Searching with nothing entered in any input area will return all 4000+ songs in the archive (this may take a while).
-	<br>Note that you can vertically resize the search results table as well as this whole text header section.</p>
-	<p>If you have feedback regarding this web tool, <a href='https://raadshaikh.github.io/contact.html'>contact me.</a></p>
-	<hr>
-	<button onclick='search()'>Search</button>
-	<button onclick='clear_search()'>Clear</button>
-	<div id="results_table_div" style="height: 50px;overflow: auto;">
-        <table id="results_table" class="fixed_headers">
-        <thead>
-        <tr>
-		<!-- ss0 means search string 0 -->
-		<th ondblclick="sortTable(0)"><input type='text' id='ss0'><br>Filename</th>
-		<th ondblclick="sortTable(1)"><input type='text' id='ss1'><br>Author</th>
-		<th ondblclick="sortTable(2)"><input type='text' id='ss2'><br>Source</th>
-		<th ondblclick="sortTable(3)"><input type='text' id='ss3'><br>Source Song</th>
-		<th ondblclick="sortTable(4)"><input type='text' id='ss4'><br>Date</th>
-		<th style='background-color:#DDD; resize:none;'></th>
-		</tr>
-        </thead>
-        <tbody>
-        <tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
-        </tbody>
-        </table>
-        </div> 
-	<hr>
+	<div id="nontoolbar">
+		<div id="header" style="padding:5px;"><h2 style="display:inline;">Organya Archive - </h2>A collection of org music by fans, for fans<hr></div>
+		<div style="height:fit-content;">
+			<p>This is a static archive, based on the first two folders in the <a href='https://docs.google.com/spreadsheets/d/151dLFqDK-_UhSLz_0fOfvAvfcbgendqfZiwVZ26ZLnw/'>Organya Master List</a> (compiled by @rde on Discord). Hopefully this format makes it easier to search for, preview, and download orgs.</p>
+			<p>Enter text in the input areas above the table headers, and click Search to find orgs you want. Click on a row to select that org, then click the green play button to play. Double-click a table header to sort results based on that header alphabetically. You can search under multiple columns at a time (this takes a logical intersection of the queries). Searching with nothing entered in any input area will return all 4000+ songs in the archive (this may take a while).
+			<br>Note that you can vertically resize the search results table as well as this whole text header section.</p>
+			<p>If you have feedback regarding this web tool, <a href='https://raadshaikh.github.io/contact.html'>contact me.</a></p>
+			<hr>
+			<button onclick='search()'>Search</button>
+			<button onclick='clear_search()'>Clear</button>
+			<div id="results_table_div" style="height: 50px;overflow: auto;">
+				<table id="results_table" class="fixed_headers">
+				<thead>
+				<tr>
+				<!-- ss0 means search string 0 -->
+				<th ondblclick="sortTable(0)"><input type='text' id='ss0'><br>Filename</th>
+				<th ondblclick="sortTable(1)"><input type='text' id='ss1'><br>Author</th>
+				<th ondblclick="sortTable(2)"><input type='text' id='ss2'><br>Source</th>
+				<th ondblclick="sortTable(3)"><input type='text' id='ss3'><br>Source Song</th>
+				<th ondblclick="sortTable(4)"><input type='text' id='ss4'><br>Date</th>
+				<th style='background-color:#DDD; resize:none;'></th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+				</tbody>
+				</table>
+			</div> 
+			<hr>
+		</div>
 	</div>
-	
-	
-<div id="displayName">
-</div>
-	
-	
-</div>
-
 
     <div id="toolbar">
         
@@ -215,81 +208,86 @@
             <label id="currentWaitDisplay" style="display: flex;align-items: center;justify-content: center;box-shadow: inset 1px 1px 3px #999;border: 1px solid #555;padding: 5px;width: 2em">0</label>
         </div>
         
-            <div style="padding: 10px;"></div>
-            <label style="display: flex;align-items: center;padding-top: 5px;padding-bottom: 5px;padding-left: 0px;padding-right: 4px;">Mute</label>
-            <div id="table">
-                <li><img src="GUI/button_track_1.png"/></li>
-                <li><input type="checkbox" value="0" id="mute_1" name="is1Muted" class="mute"/></li>
-            </div>
-            <div id="table">
-                <li><img src="GUI/button_track_2.png"/></li>
-                <li><input type="checkbox" value="1" id="mute_2" name="is2Muted" class="mute"/></li>
-            </div>
-            <div id="table">
-                <li><img src="GUI/button_track_3.png"/></li>
-                <li><input type="checkbox" value="2" id="mute_3" name="is3Muted" class="mute"/></li>
-            </div>
-            <div id="table">
-                <li><img src="GUI/button_track_4.png"/></li>
-                <li><input type="checkbox" value="3" id="mute_4" name="is4Muted" class="mute"/></li>
-            </div>
-            <div id="table">
-                <li><img src="GUI/button_track_5.png"/></li>
-                <li><input type="checkbox" value="4" id="mute_5" name="is5Muted" class="mute"/></li>
-            </div>
-            <div id="table">
-                <li><img src="GUI/button_track_6.png"/></li>
-                <li><input type="checkbox" value="5" id="mute_6" name="is6Muted" class="mute"/></li>
-            </div>
-            <div id="table">
-                <li><img src="GUI/button_track_7.png"/></li>
-                <li><input type="checkbox" value="6" id="mute_7" name="is7Muted" class="mute"/></li>
-            </div>
-            <div id="table">
-                <li><img src="GUI/button_track_8.png"/></li>
-                <li><input type="checkbox" value="7" id="mute_8" name="is8Muted" class="mute"/></li>
-            </div>
-            <button onclick="muteAll('melodies')" style="height:38px;padding:3px;"></button>
-            
-                <div style="padding:5px;"></div>
-                
-            <div id="table">    
-                <li><img src="GUI/button_track_Q.png"/></li>
-                <li><input type="checkbox" value="8" id="mute_Q" name="isQMuted" class="mute"/></li>
-            </div>
-            <div id="table">
-                <li><img src="GUI/button_track_W.png"/></li>
-                <li><input type="checkbox" value="9" id="mute_W" name="isWMuted" class="mute"/></li>
-            </div>
-            <div id="table">
-                <li><img src="GUI/button_track_E.png"/></li>
-                <li><input type="checkbox" value="10" id="mute_E" name="isEMuted" class="mute"/></li>
-            </div>
-            <div id="table">
-                <li><img src="GUI/button_track_R.png"/></li>
-                <li><input type="checkbox" value="11" id="mute_R" name="isRMuted" class="mute"/></li>
-            </div>
-            <div id="table">
-                <li><img src="GUI/button_track_T.png"/></li>
-                <li><input type="checkbox" value="12" id="mute_T" name="isTMuted" class="mute"/></li>
-            </div>
-            <div id="table">
-                <li><img src="GUI/button_track_Y.png"/></li>
-                <li><input type="checkbox" value="13" id="mute_Y" name="isYMuted" class="mute"/></li>
-            </div>
-            <div id="table">
-                <li><img src="GUI/button_track_U.png"/></li>
-                <li><input type="checkbox" value="14" id="mute_U" name="isUMuted" class="mute"/></li>
-            </div>
-            <div id="table">
-                <li><img src="GUI/button_track_I.png"/></li>
-                <li><input type="checkbox" value="15" id="mute_I" name="isIMuted" class="mute"/></li>
-            </div>
-            <button onclick="muteAll('drums')" style="height:38px;padding:3px;"></button>
+		<div style="padding: 10px;"></div>
+		<label style="display: flex;align-items: center;padding-top: 5px;padding-bottom: 5px;padding-left: 0px;padding-right: 4px;">Mute</label>
+		<div id="table">
+			<li><img src="GUI/button_track_1.png"/></li>
+			<li><input type="checkbox" value="0" id="mute_1" name="is1Muted" class="mute"/></li>
+		</div>
+		<div id="table">
+			<li><img src="GUI/button_track_2.png"/></li>
+			<li><input type="checkbox" value="1" id="mute_2" name="is2Muted" class="mute"/></li>
+		</div>
+		<div id="table">
+			<li><img src="GUI/button_track_3.png"/></li>
+			<li><input type="checkbox" value="2" id="mute_3" name="is3Muted" class="mute"/></li>
+		</div>
+		<div id="table">
+			<li><img src="GUI/button_track_4.png"/></li>
+			<li><input type="checkbox" value="3" id="mute_4" name="is4Muted" class="mute"/></li>
+		</div>
+		<div id="table">
+			<li><img src="GUI/button_track_5.png"/></li>
+			<li><input type="checkbox" value="4" id="mute_5" name="is5Muted" class="mute"/></li>
+		</div>
+		<div id="table">
+			<li><img src="GUI/button_track_6.png"/></li>
+			<li><input type="checkbox" value="5" id="mute_6" name="is6Muted" class="mute"/></li>
+		</div>
+		<div id="table">
+			<li><img src="GUI/button_track_7.png"/></li>
+			<li><input type="checkbox" value="6" id="mute_7" name="is7Muted" class="mute"/></li>
+		</div>
+		<div id="table">
+			<li><img src="GUI/button_track_8.png"/></li>
+			<li><input type="checkbox" value="7" id="mute_8" name="is8Muted" class="mute"/></li>
+		</div>
+		<button onclick="muteAll('melodies')" style="height:38px;padding:3px;"></button>
+		
+			<div style="padding:5px;"></div>
+			
+		<div id="table">    
+			<li><img src="GUI/button_track_Q.png"/></li>
+			<li><input type="checkbox" value="8" id="mute_Q" name="isQMuted" class="mute"/></li>
+		</div>
+		<div id="table">
+			<li><img src="GUI/button_track_W.png"/></li>
+			<li><input type="checkbox" value="9" id="mute_W" name="isWMuted" class="mute"/></li>
+		</div>
+		<div id="table">
+			<li><img src="GUI/button_track_E.png"/></li>
+			<li><input type="checkbox" value="10" id="mute_E" name="isEMuted" class="mute"/></li>
+		</div>
+		<div id="table">
+			<li><img src="GUI/button_track_R.png"/></li>
+			<li><input type="checkbox" value="11" id="mute_R" name="isRMuted" class="mute"/></li>
+		</div>
+		<div id="table">
+			<li><img src="GUI/button_track_T.png"/></li>
+			<li><input type="checkbox" value="12" id="mute_T" name="isTMuted" class="mute"/></li>
+		</div>
+		<div id="table">
+			<li><img src="GUI/button_track_Y.png"/></li>
+			<li><input type="checkbox" value="13" id="mute_Y" name="isYMuted" class="mute"/></li>
+		</div>
+		<div id="table">
+			<li><img src="GUI/button_track_U.png"/></li>
+			<li><input type="checkbox" value="14" id="mute_U" name="isUMuted" class="mute"/></li>
+		</div>
+		<div id="table">
+			<li><img src="GUI/button_track_I.png"/></li>
+			<li><input type="checkbox" value="15" id="mute_I" name="isIMuted" class="mute"/></li>
+		</div>
+		<button onclick="muteAll('drums')" style="height:38px;padding:3px;"></button>
     
         <div style="padding:10px;"></div>
         <button onclick="muteAll('solo')"><img src="GUI/solo.png" alt="Solo"></button>
+		
+
     </div>
+	
+	<!-- <div id="displayName"> -->
+	<!-- </div> -->
 	
 </div>
 
@@ -310,7 +308,7 @@
 		
 			let prev_song=null;
 			let new_song=null;
-			<!-- new_song = new URL('http://raadshaikh.github.io/music/organya-js-03/songs/NewData2.org'); -->
+			new_song = new URL('http://raadshaikh.github.io/music/organya-js-03/songs/NewData2.org');
 			<!-- document.getElementById('displayName').innerHTML = "Now playing<span id='nowPlaying'>:</span> " + new_song+' ~ ('+'baka'+')'; -->
 
             const canvasContainer = document.getElementById("canvas-container");
@@ -337,7 +335,7 @@
             let currentOrg = null;
             window.stopOrg = () => {
                 if (currentOrg != null) {
-                    currentOrg.stop();
+                    currentOrg.pause();
                     currentOrg = null;
                 }
             }
@@ -350,8 +348,7 @@
 
             window.playOrg = async (argument='doPlay') => {
                 console.log("fetching song...");
-				
-                    res = await fetch(new_song);
+                res = await fetch(new_song);
                 
                 if (prev_song != new_song || prev_song == null){
 					prev_song = new_song;
