@@ -39,15 +39,15 @@ for roots, dirs, files in os.walk(directory):
             data.append({
                 "filename": file,
                 "path": root_slash,
-                "title": "",
+                # "title": "",
                 "author": author,
                 "source": source,
                 "source song": source_song,
                 "isCover": isCover, #0=original, 1=cover/remix, 2=unsure
-                "date uploaded": "",
+                # "date uploaded": "",
                 "date created": datetime.datetime.fromtimestamp(min(os.stat(os.path.join(roots,file)).st_ctime, os.stat(os.path.join(roots,file)).st_mtime)).isoformat(),
-                "comments": "",
-                "tags": []
+                # "comments": "",
+                # "tags": []
             })
 
 to_write = 'let song_index = ' + json.dumps(data, indent=2)
