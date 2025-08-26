@@ -9,4 +9,4 @@ One thing not accounted for is when a song is original but still comes from some
 Enter text in the input areas above the table headers, and click Search to find orgs you want. Click on a row to select that org, then click the green play button to play. You can search under multiple columns at a time (this takes a logical intersection of the queries). Searching with nothing entered in any input area will return all 4000+ songs in the archive (this may take while).
 Note that you can vertically resize the search results table as well as this whole text header section.
 
-If you have feedback regarding this web tool, contact me anywhere listed in https://raadshaikh.github.io/contact.html
+If you have feedback regarding this web tool, contact me anywhere listed in https://idioticbaka1824.github.io/contact.html
